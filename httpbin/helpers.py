@@ -270,7 +270,7 @@ def HA1(realm, username, password):
     HA1 = md5(A1) = MD5(username:realm:password)
     """
     if not realm:
-        realm = u''
+        realm = ''
     return H(b":".join([username.encode('utf-8'),
                            realm.encode('utf-8'),
                            password.encode('utf-8')]))

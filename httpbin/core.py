@@ -422,7 +422,7 @@ def digest_auth(qop=None, user='user', passwd='passwd'):
         # encode it back to ascii.  Also, RFC2617 says about nonces: "The
         # contents of the nonce are implementation dependent"
         nonce = H(b''.join([
-            getattr(request,'remote_addr',u'').encode('ascii'),
+            getattr(request,'remote_addr','').encode('ascii'),
             b':',
             str(time.time()).encode('ascii'),
             b':',
