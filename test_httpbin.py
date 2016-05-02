@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import os
 import base64
 import unittest
@@ -70,7 +72,7 @@ class HttpbinTestCase(unittest.TestCase):
         self.assertTrue(response.data.endswith(b'\n'))
 
     def test_base64(self):
-        greeting = u'Здравствуй, мир!'
+        greeting = 'Здравствуй, мир!'
         b64_encoded = _string_to_base64(greeting)
         response = self.app.get(b'/base64/' + b64_encoded)
         content = response.data.decode('utf-8')
@@ -94,8 +96,8 @@ class HttpbinTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_post_body_unicode(self):
-        response = self.app.post('/post', data=u'оживлённым'.encode('utf-8'))
-        self.assertEqual(json.loads(response.data.decode('utf-8'))['data'], u'оживлённым')
+        response = self.app.post('/post', data='оживлённым'.encode('utf-8'))
+        self.assertEqual(json.loads(response.data.decode('utf-8'))['data'], 'оживлённым')
 
     def test_post_file_with_missing_content_type_header(self):
         # I built up the form data manually here because I couldn't find a way
