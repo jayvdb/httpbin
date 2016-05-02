@@ -34,4 +34,5 @@ setup(
     packages=find_packages(),
     include_package_data = True, # include files listed in MANIFEST.in
     install_requires=['Flask','MarkupSafe','decorator','itsdangerous','six'],
+    use_2to3=True,
 )
