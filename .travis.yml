@@ -8,6 +8,7 @@ env:
     - TOXENV=pypy
 
 install:
+    - if [[ "$TOXENV" == "py32" ]]; then pip install 'virtualenv<14' ; fi
     - travis_retry pip install tox
 
 script:
