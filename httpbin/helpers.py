@@ -7,9 +7,11 @@ httpbin.helpers
 This module provides helper functions for httpbin.
 """
 
-import json
 import base64
 from hashlib import md5
+
+import simplejson as json
+
 from werkzeug.http import parse_authorization_header
 
 from flask import request, make_response

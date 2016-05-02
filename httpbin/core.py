@@ -8,12 +8,13 @@ This module provides the core HttpBin experience.
 """
 
 import base64
-import json
 import os
 import random
 import time
 import uuid
 import argparse
+
+import simplejson as json
 
 from flask import Flask, Response, request, render_template, redirect, jsonify as flask_jsonify, make_response, url_for
 from werkzeug.datastructures import WWWAuthenticate, MultiDict

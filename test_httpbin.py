@@ -5,7 +5,9 @@ import base64
 import unittest
 import contextlib
 import six
-import json
+
+import simplejson as json
+
 from werkzeug.http import parse_dict_header
 from hashlib import md5
 from six import BytesIO
